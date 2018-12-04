@@ -20,7 +20,7 @@ function titulo() {
 }
 
 /**
- * Función que genera los botones "Generar planta" y "Borrar fila"
+ * Genera los botones "Generar planta" y "Borrar fila"
  */
 function generarBt1() {
     //Creamos un div para meter ambos botones dentro y que nos salgan uno al lado del otro
@@ -42,7 +42,7 @@ function generarBt1() {
 }
 
 /**
- * Función que genera la tabla y escribe en ella sólamente los títulos de la tabla
+ * Genera la tabla y escribe en ella solo los títulos de la tabla
  */
 function titulosTabla() {
     tabla = document.createElement("table");
