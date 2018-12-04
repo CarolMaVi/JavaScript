@@ -1,10 +1,10 @@
-var aleatorio = 0;  //Almacena numeros aleatorios en mezclar()
+var aleatorio = 0;  
 var clicks = 1;     //Indica si hemos hecho 1 click o 2.
-var cont = 0;       //Cuenta el numero de parejas acertadas
+var cont = 0;       //Contador de parejas acertadas
 var idAnterior;     //Guarda el id de la primera imagen mostrada
 var idActual;       //Guarda el id de la segunda imagen mostrada
 var arrayPokemon = ["muk", "lapras", "charmander", "snorlax", "pikachu", "infernape", "muk", "lapras", "charmander", "snorlax", "pikachu", "infernape"];
-var copia = new Array(12);  //Lo usamos para mezclar()
+var copia = new Array(12); 
 
 mezclar();
 
@@ -13,7 +13,7 @@ function mezclar() {
     for (let i = 0; i < arrayPokemon.length; i++) {
         aleatorio = parseInt(Math.random() * 12);
 
-        while (copia[aleatorio] != null) {  //En JavaScript el contenido de un array creado por defecto es null
+        while (copia[aleatorio] != null) {  
 
             aleatorio = parseInt(Math.random() * 12);
         }
