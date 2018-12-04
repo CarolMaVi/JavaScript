@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title>Validación de un formualario</title>
+    <style>
+        fieldset{
+        background-color: palegreen;
+        width: 500px;
+        }
+        /* Estos son los estilos para nuestros mensajes de error */
+        .error {
+        width  : 100%;
+        padding: 0;
+        
+        font-size: 80%;
+        color: white;
+        background-color: #900;
+        border-radius: 0 0 5px 5px;
+        
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        }
+
+        .error.active {
+        padding: 0.3em;
+        }
+</style>
+
+    <script type="text/javascript" src="validar.js"></script>
+</head>
+
+<body>
+    <form id="formulario" onsubmit="return validarDatos()">
+        <fieldset>
+            <legend><b>Validación de un formulario</b></legend>
+            <label for="nombre">Nombre</label><br />
+            <input type="text" id="nombre" maxlength="9" class=""></input>
+            <span class="error" id="errorNombre" aria-live="polite"></span><br />
+
+            <label for="email">Correo electrónico</label><br />
+            <input type="text" id="email"></input>
+            <span class="error" id="errorEmail" aria-live="polite"></span><br />
+
+            <label for="dni">DNI</label><br />
+            <input type="text" id="dni" maxlength="8"></input>
+            <span class="error" id="errorDni" aria-live="polite"></span><br />
+
+            <label for="aficiones">Aficiones:</label><br />
+            <select id="aficiones">
+                <option value="0" selected="selected">- Selecciona -</option>
+                <option value="1">Programar con JavaScript</option>
+                <option value="2">Ver la televisión</option>
+                <option value="3">Jugar a las cartas</option>
+                <option value="4">Diseñar páginas web</option>
+            </select>
+            <span class="error" id="errorAficiones" aria-live="polite"></span><br /><br />
+
+            <label for="cond_si">¿Aceptas las condiciones?</label><br /><br />
+            <input type="checkbox" value="SI" id="cond_si">SI</input>
+            <span class="error" id="errorCond_si" aria-live="polite"></span><br /></br>
+
+            <label for="radio">¿Deseas registrarte en la página?</label><br /><br />
+            <input type="radio" value="SI" id="radio_si" name="radio">SI</input>
+            <span class="error" id="errorRadio" aria-live="polite"></span><br />
+
+            <input type="radio" value="NO" id="radio_no" name="radio">NO</input>
+            <span class="error" id="errorRadio" aria-live="polite"></span><br /><br />
+
+            <input type="submit" id="submit" value="Enviar"></input>
+        </fieldset>
+    </form>
+</body>
+
+</html>
