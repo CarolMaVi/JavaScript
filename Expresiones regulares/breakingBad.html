@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Breaking Bad</title>
+    <style>
+        fieldset{
+        background-color: aqua;
+        width: 200px;
+        }
+        /* Estos son los estilos para nuestros mensajes de error */
+        .error {
+        width  : 100%;
+        padding: 0;
+        
+        font-size: 80%;
+        color: white;
+        background-color: #900;
+        border-radius: 0 0 5px 5px;
+        
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        }
+
+        .error.active {
+        padding: 0.3em;
+        }
+</style>
+    <script type="text/javascript" src="breakingBad.js">
+    </script>
+</head>
+
+<body>
+    <form id="formulario" onsubmit="return validarBolsa()">
+        <fieldset>
+            <legend><b>Informacion de la bolsa</b></legend>
+            <label for="fecha">Fecha de creación:</label><br />
+            <input type="text" id="fecha"></input><br />
+            <span class="error" id="errorFecha" aria-live="polite"></span><br /><br />
+
+            <label for="cocinero">Cocinero:</label><br />
+            <input type="text" id="cocinero"></input><br />
+            <span class="error" id="errorCocinero" aria-live="polite"></span><br /><br />
+
+            <label for="destinatario">Destinatario:</label><br />
+            <input type="text" id="destinatario"></input><br />
+            <span class="error" id="errorDestinatario" aria-live="polite"></span><br /><br />
+
+            <label for="gramos">Gramos:</label><br />
+            <input type="text" id="gramos"></input><br />
+            <span class="error" id="errorGramos" aria-live="polite"></span><br /><br />
+
+            <label for="composicion">Composición:</label><br />
+            <input type="text" id="composicion"></input><br />
+            <span class="error" id="errorComposicion" aria-live="polite"></span><br /><br />
+
+            <label for="cuenta">Número de cuenta de EEUU:</label><br />
+            <input type="text" id="cuenta"></input><br />
+            <span class="error" id="errorCuenta" aria-live="polite"></span><br /><br />
+
+            <input type="submit" id="submit" value="Enviar"></input>
+        </fieldset>
+    </form>
+</body>
+
+</html>
