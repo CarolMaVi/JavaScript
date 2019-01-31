@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery Selector</title>
+  <link rel="stylesheet" type="text/css" href="trystyle.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="selectores.js"></script>
+  
+  <style>
+    body {
+    line-height: 15px;
+    }
+
+    h1 {
+        line-height: 34px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+
+    #iframeResult {
+        font-family: Arial;
+    }
+
+    #iframeResult * :not(.noSel) {
+        border: 1px solid transparent;
+    }
+
+    #iframeResult span.markup {
+        color: #aaaaaa;
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: normal;
+    }
+
+    #selectorOptions div {
+        font-family: "Courier New", Courier, monospace;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        cursor: pointer;
+    }
+
+    #selectorOptions div:hover {
+        background-color: #f1f1f1;
+    }
+
+    #content,
+    #footer {
+        background-color: #f1f1f1;
+    }
+
+    #content {
+        border-top: none;
+    }
+
+    .headerText,
+    #footer {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: #222222;
+    }
+
+    #selectorDescription {
+        padding: 10px;
+        display: none;
+        width: 225px;
+        background-color: #f1f1f1;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        position: fixed;
+        top: 150px;
+        left: 230px;
+        text-align: center;
+        font-family: Verdana;
+        font-size: 12px;
+    }
+
+    .smalldevice {
+        display: none;
+    }
+
+    @media screen and (max-width: 1160px) {
+        .smalldevice {
+            display: inline;
+        }
+        .largedevice {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 950px) {
+        #selectorDescription {
+            left: 200px;
+            width: 150px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        #textareaCode {
+            padding: 5px;
+        }
+        .iframewrapper {
+            overflow: auto;
+        }
+        .container {
+            min-width: 320px;
+        }
+        .textarea,
+        .iframe {
+            height: 97%;
+        }
+        .textareacontainer,
+        .iframecontainer {
+            height: 50%;
+            float: none;
+            width: 98%;
+        }
+        .textarea,
+        .iframe {
+            height: 97%;
+            padding: 15px;
+        }
+        .textareacontainer {
+            height: 300px;
+        }
+        .container {
+            bottom: initial;
+            height: initial;
+            min-width: 250px;
+        }
+        #selectorDescription {
+            width: 40%;
+            position: absolute;
+            top: 55px;
+            left: initial;
+            right: 10%;
+        }
+    }
+
+    @media screen and (max-height: 700px) {
+        .footerText {
+            display: none;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+  <div id='tryitLeaderboard' style="background-color:#ffffff">
+    <div id="snhb-try_it_leaderboard-0"></div>
+  </div>
+  <div class="container">
+    <div class="textareacontainer">
+      <div class="textarea">
+        <div style="overflow:auto;">
+          <div class="headerText">
+            <span class="smalldevice">Selectores:</span>
+            <span class="largedevice">Selectores:</span>
+          </div>
+        </div>
+        <div class="textareawrapper" style="padding-top:5px;overflow:auto;">
+
+          <form id="opciones">
+            <select name="opciones">
+              <option value="1">1. The element with id="Lastname"</option>
+              <option value="2">2. All elements with class="intro" </option>
+              <option value="3">3. All elements with class="intro", and the element with id="Lastname" </option>
+              <option value="4">4. All &lt;h1&gt; elements. </option>
+              <option value="5">5. All &lt;h1&gt; elements and all &lt;p&gt; elements. </option>
+              <option value="6">6. The first &lt;p&gt; element. </option>
+              <option value="7">7. The last &lt;p&gt; element. </option>
+              <option value="8">8. All even &lt;tr&gt; elements. </option>
+              <option value="9">9. All odd &lt;tr&gt; elements. </option>
+              <option value="10">10. All &lt;p&gt; elements that are the first child of their parent. </option>
+              <option value="11">11. All &lt;p&gt; elements that are the first &lt;p&gt; element of their parent.
+              </option>
+              <option value="12">12. All &lt;p&gt; elements that are the last child of their parent. </option>
+              <option value="13">13. All &lt;p&gt; elements that are the last &lt;p&gt; element of their parent.
+              </option>
+              <option value="14">14. All &lt;li&gt; elements that are the first child of their parent. </option>
+              <option value="15">15. All &lt;li&gt; elements that are the first child of their parent, counting from
+                the last
+                child element of the parent. </option>
+              <option value="16">16. All &lt;li&gt; elements that are the second &lt;li&gt; element of their parent.
+              </option>
+              <option value="17">17. All &lt;li&gt; elements that are the second &lt;li&gt; element of their parent,
+                counting from
+                the &lt;li&gt; element. </option>
+              <option value="18">18. All &lt;b&gt; elements that are the only child of their parent. </option>
+              <option value="19">19. All &lt;h3&gt; elements that are the only child of its type, of their parent.
+              </option>
+              <option value="20">20. All &lt;p&gt; elements that are a direct child of a &lt;div&gt; element. </option>
+              <option value="21">21. All &lt;p&gt; elements that are descendants of a &lt;div&gt; element. </option>
+              <option value="22">22. The &lt;p&gt; element that are next to each &lt;ul&gt; elements. </option>
+              <option value="23">23. All &lt;table&gt; elements that are siblings of a &lt;ul&gt; element. </option>
+              <option value="24">24. The first &lt;li&gt; element of &lt;ul&gt; elements (index starts at 0). </option>
+              <option value="25">25. All &lt;li&gt; elements of &lt;ul&gt; elements with an index greater than 0.
+              </option>
+              <option value="26">26. All &lt;li&gt; elements of &lt;ul&gt; elements with an index less than 2.</option>
+              <option value="27">27. All header elements &lt;h1&gt;, &lt;h2&gt; ... </option>
+              <option value="28">28. All header elements that are not &lt;h1&gt; elements. </option>
+              <option value="29">29. The element that currently has focus.</option>
+              <option value="30">30. All elements which contains the text "Duck" </option>
+            </select>
+          </form>
+
+          <div id="selectorOptions" style="margin:10px;margin-right:0px;">
+          </div>
+          <div id="selectorDescription"></div>
+        </div>
+      </div>
+    </div>
+    <div class="iframecontainer">
+      <div class="iframe">
+        <div style="overflow:auto;">
+          <div class="headerText">Resultado:</div>
+        </div>
+        <div class="iframewrapper">
+          <div id="iframeResult" class="result_output" style="overflow:auto;">
+
+
+            <div id="selectorResult" style="padding:5px;" class="noSel">
+              <div class="noSel">
+                <h1><span class="markup">&lt;h1&gt;</span>Bienvenidos al laboratorio de Selectores jQuery<span class="markup">&lt;/h1&gt;</span></h1>
+
+                <div id="helpIntro">
+                  <span class="markup">&lt;div class="intro"&gt;</span>
+                  <div class="intro">
+                    <p style="margin-top:4px;"><span class="markup">&lt;p&gt;</span>My name is Donald <span id="Lastname"><span
+                          class="markup">&lt;span id="Lastname"&gt;</span>Duck<span class="markup">&lt;/span&gt;</span></span><span
+                        class="markup">&lt;/p&gt;</span></p>
+                    <p id="my-Address"><span class="markup">&lt;p id="my-Address"&gt;</span>I live in Duckburg<span
+                        class="markup">&lt;/p&gt;</span></p>
+                    <p style="margin-bottom:4px;"><span class="markup">&lt;p&gt;</span>I have many friends:<span class="markup">&lt;/p&gt;</span></p>
+                  </div>
+                  <span class="markup">&lt;/div&gt;</span>
+                </div>
+
+                <br>
+                <div class="helpUl">
+                  <span class="markup">&lt;ul id="Listfriends&gt;</span>
+                  <ul id="Listfriends" style="margin-top:0px;margin-bottom:0px;">
+
+                    <li><span class="markup">&lt;li&gt;</span>Goofy<span class="markup">&lt;/li&gt;</span></li>
+                    <li><span class="markup">&lt;li&gt;</span>Mickey<span class="markup">&lt;/li&gt;</span></li>
+                    <li><span class="markup">&lt;li&gt;</span>Daisy<span class="markup">&lt;/li&gt;</span></li>
+                    <li><span class="markup">&lt;li&gt;</span>Pluto<span class="markup">&lt;/li&gt;</span></li>
+                  </ul>
+                  <span class="markup">&lt;/ul&gt;</span>
+                </div>
+                <ul style="display:none;"></ul>
+
+                <p><span class="markup">&lt;p&gt;</span>I really like Daisy!!<span class="markup">&lt;/p&gt;</span></p>
+
+                <p lang="it" title="Hello beautiful"><span class="markup">&lt;p lang="it" title="Hello beautiful"&gt;</span>Ciao
+                  bella<span class="markup">&lt;/p&gt;</span></p>
+
+
+                <h3><span class="markup">&lt;h3&gt;</span>We are all animals!<span class="markup">&lt;/h3&gt;</span></h3>
+
+                <p><span class="markup">&lt;p&gt;</span><span><b><span class="markup">&lt;b&gt;</span>My latest
+                      discoveries has led me to believe that we are all animals:<span class="markup">&lt;/b&gt;</span></b></span><span
+                    class="markup">&lt;/p&gt;</span></p>
+
+                <div class="helpTable" style="width:220px;">
+                  <span class="markup">&lt;table&gt;</span>
+                  <ul style="display:none;"></ul>
+
+                  <table cellpadding="2" cellspacing="2">
+                    <tr>
+                      <th style="background-color:#f1f1f1;">Name</th>
+                      <th style="background-color:#f1f1f1;">Type of Animal</th>
+                    </tr>
+                    <tr>
+                      <td style="background-color:#f1f1f1;">Mickey</td>
+                      <td style="background-color:#f1f1f1;">Mouse</td>
+                    </tr>
+                    <tr>
+                      <td style="background-color:#f1f1f1;">Goofey</td>
+                      <td style="background-color:#f1f1f1;">Dog</td>
+                    </tr>
+                    <tr>
+                      <td style="background-color:#f1f1f1;">Daisy</td>
+                      <td style="background-color:#f1f1f1;">Duck</td>
+                    </tr>
+                    <tr>
+                      <td style="background-color:#f1f1f1;">Pluto</td>
+                      <td style="background-color:#f1f1f1;">Dog</td>
+                    </tr>
+                  </table>
+                  <span class="markup">&lt;/table&gt;</span>
+                </div>
+
+                <div class="noSel newsletter" style="background-color:#99D6FF;border:1px solid #0099FF;padding:10px;xfont-size:12px;">
+                  <form>
+                    <h4>Subscribe to my newsletter:</h4>
+                    <div style="overflow:auto;">
+                      <div style="width:100px;float:left;">Name:</div>
+                      <div style="width:180px;float:left;"><input type="text" style="width:150px" class="markup" /></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:100px;float:left;">E-mail:</div>
+                      <div style="width:180px;float:left;"><input type="text" style="width:150px" class="markup" /></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:100px;float:left;">Password:</div>
+                      <div style="width:180px;float:left;"><input type="password" style="width:150px" name="password"
+                          value="password" /></div>
+                    </div>
+                    Female: <input name="rr" type="radio" id="rr1" checked="checked" style="outline:2px solid transparent" />
+                    Male: <input name="rr" type="radio" id="rr2" style="outline:2px solid transparent" />
+                    Other: <input name="rr" type="radio" id="rr3" disabled="disabled" style="outline:2px solid transparent" />
+                    <div style="overflow:auto;">
+                      <h4>Newscategories:</h4>
+                      <div style="width:70px;float:left;">Ducks:</div>
+                      <div style="width:20px;float:left;"><input id="cc1" type="checkbox" checked="checked" style="outline:2px solid transparent" /></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:70px;float:left;">Dogs:</div>
+                      <div style="width:20px;float:left;"><input id="cc2" type="checkbox" style="outline:2px solid transparent" /></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:70px;float:left;">Humans:</div>
+                      <div style="width:20px;float:left;"><input id="cc3" type="checkbox" style="outline:2px solid transparent" /></div>
+                    </div>
+                    <div class="noSel" style="clear:both;"></div>
+                    <input class="noSel" type="reset" value="Reset" style="outline:2px solid transparent" />
+                    <input class="noSel" type="submit" value="Submit" style="outline:2px solid transparent" />
+                    <input class="noSel" type="button" value="Cancel" style="outline:2px solid transparent" />
+                    <h4>My Favourite:</h4>
+                    <select multiple class="myselect">
+                      <option>Donald</option>
+                      <option selected>Mickey</option>
+                      <option>Goofy</option>
+                    </select>
+                    <h4>Upload image:</h4>
+                    <input type="file">
+                    <input type="image" src="arrow-r.jpg" style="border:3px solid transparent">
+                  </form>
+                </div>
+
+                <br>
+
+
+
+
+              </div>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
